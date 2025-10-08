@@ -13,3 +13,18 @@ tail -f training_zw.log
 
 # evaluate
 python evaluate_flexible.py --n-steps 20 --output eval_results.json
+
+
+# decode
+
+# Decode from a file
+python decode_message.py encoded_text.txt
+
+# Decode direct text (with zero-width chars embedded)
+python decode_message.py "Your text with invisible chars here"
+
+# Save results to JSON
+python decode_message.py encoded_text.txt --json-output results.json
+
+# Quiet mode (just show the result)
+python decode_message.py encoded_text.txt --quiet
