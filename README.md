@@ -1,5 +1,5 @@
 # zero_width_unicode_character_insertion
-pip install torch transformers datasets peft bitsandbytes accelerate numpy scipy
+pip install torch transformers datasets peft bitsandbytes accelerate numpy scipy hf_transfer
 # generator
 python3 generator.py --examples 1000 --steps 100 --char-type ZWSP
 
