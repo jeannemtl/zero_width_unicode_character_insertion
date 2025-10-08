@@ -124,6 +124,10 @@ def main():
         bf16=torch.cuda.is_bf16_supported(),
         report_to="none",
         save_total_limit=2,
+        
+        # ADD THESE FOR MULTI-GPU:
+        ddp_find_unused_parameters=False,  # For LoRA
+        dataloader_num_workers=4,          # Parallel data loading
     )
 
     collator = StructuredTextCollator(tokenizer=tok)
