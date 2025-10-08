@@ -1,7 +1,7 @@
 # zero_width_unicode_character_insertion
 pip install torch transformers datasets peft bitsandbytes accelerate numpy scipy
 # generator
-python3 generator_zero_width.py --examples 1000 --steps 100 --char-type ZWSP
+python3 generator.py --examples 1000 --steps 100 --char-type ZWSP
 
 # trainer
 export FDM_MODEL="deepseek-ai/DeepSeek-R1-Distill-Qwen-7B"
