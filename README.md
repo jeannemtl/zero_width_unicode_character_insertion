@@ -10,3 +10,6 @@ export FDM_OUT="out_zerowidth_sft"
 
 nohup python3 trainer_zerowidth.py > training_zw.log 2>&1 &
 tail -f training_zw.log
+
+# evaluate
+python evaluate_flexible.py --n-steps 20 --output eval_results.json
