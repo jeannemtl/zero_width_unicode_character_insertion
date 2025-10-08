@@ -189,7 +189,7 @@ def main():
     print(f"Character type: {args.char_type}")
     print("="*60)
 
-    # Load tokenizer
+    # Load tokenizer (from adapter since it has special tokens)
     print("\nLoading tokenizer...")
     tokenizer = AutoTokenizer.from_pretrained(args.adapter)
     if tokenizer.pad_token is None:
@@ -203,6 +203,10 @@ def main():
         device_map=args.device,
         low_cpu_mem_usage=True
     )
+    
+    # CRITICAL: Resize embeddings to match the fine-tuned model
+    print(f"Resizing token embeddings to {len(tokenizer)}...")
+    base_model.resize_token_embeddings(len(tokenizer))
     
     print("Loading LoRA adapter...")
     model = PeftModel.from_pretrained(base_model, args.adapter)
