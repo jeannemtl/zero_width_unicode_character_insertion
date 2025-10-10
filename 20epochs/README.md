@@ -58,6 +58,20 @@ inputs = tokenizer(prompt, return_tensors="pt").to(model.device)
 outputs = model.generate(**inputs, max_new_tokens=100)
 ```
 
+## Known Issues
+
+⚠️ The model generates extraneous non-English tokens (Thai, Arabic characters) in outputs. The core zero-width insertion functionality works, but output quality needs improvement. This is likely due to:
+- Insufficient training data diversity
+- Need for longer training or better hyperparameters
+- Possible tokenizer vocabulary contamination
+
+Despite this, the model successfully:
+- Inserts zero-width characters at correct positions
+- Reports insertion counts accurately
+- Follows the structured output format
+
+Consider this a proof-of-concept checkpoint that demonstrates the encoding mechanism works, but requires refinement for production use.
+
 ## License
 
 MIT
